@@ -13,6 +13,8 @@ class crawlItem(Item):
     # name = scrapy.Field()
     pass
 class Article(Item):
+    id=Field()
     title=Field()
     link=Field()
     content=Field()
+    parent_dir=Field()

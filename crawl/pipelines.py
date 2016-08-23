@@ -11,12 +11,10 @@ import sys
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 class crawlPipeline(object):
-    global base_dir
-    base_dir="articles/"
     def process_item(self, item, spider):
-        file_name = item['title']
-        file_name += ".html"
-        fp = open(base_dir+file_name, 'w')
+        file_name =item['id']+".html"
+        fp = open(item["parent_dir"]+'/'+file_name, 'w')
+        fp.write(item['title'])
         fp.write(item['content'])
         fp.close()
         return item
